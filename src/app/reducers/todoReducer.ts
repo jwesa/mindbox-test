@@ -1,18 +1,22 @@
 import { v4 as uuid } from "uuid";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-type Todo = {
+interface Todo {
     id: string;
     text: string;
     completed: boolean;
-};
+}
 
-type TodoState = {
+interface TodoState {
     todos: Todo[];
-};
+    activeTodos: Todo[];
+    completedTodos: Todo[];
+}
 
 const initialState: TodoState = {
     todos: [],
+    activeTodos: [],
+    completedTodos: [],
 };
 
 const todoSlice = createSlice({
@@ -32,9 +36,34 @@ const todoSlice = createSlice({
                 todo.completed = !todo.completed;
             }
         },
+        showActive(state) {
+            state.activeTodos = state.todos.filter(
+                (todo) => todo.completed === false
+            );
+        },
+        showCompleted(state) {
+            state.completedTodos = state.todos.filter(
+                (todo) => todo.completed === true
+            );
+        },
+        clearCompleted(state) {
+            state.completedTodos.length = 0;
+			state.todos = state.todos.map((todo) => {
+				return {
+					...todo,
+					completed: false,
+				}
+			})
+        },
     },
 });
 
-export const { addTodo, setCompleted } = todoSlice.actions;
+export const {
+    addTodo,
+    setCompleted,
+    showActive,
+    showCompleted,
+    clearCompleted,
+} = todoSlice.actions;
 
 export default todoSlice.reducer;

@@ -7,4 +7,9 @@
     &:focus {
         outline: none;
     }
+
+    &::placeholder {
+        font-style: italic;
+        opacity: 0.2;
+    }
 }

@@ -5,7 +5,7 @@ import { addTodo } from "../../app/reducers/todoReducer";
 
 const TodoInput: React.FC = () => {
     const dispatch = useAppDispatch();
-    const [value, setValue] = useState<string>("");
+    const [value, setValue] = useState("");
 
     return (
         <>
