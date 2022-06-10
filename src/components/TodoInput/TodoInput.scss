@@ -1,0 +1,10 @@
+.todo-input {
+    width: 100%;
+    background-color: rgb(242, 242, 242);
+    padding: 20px 0 20px 50px;
+    border: none;
+
+    &:focus {
+        outline: none;
+    }
+}
