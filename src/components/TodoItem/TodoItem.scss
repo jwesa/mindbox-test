@@ -1,5 +1,5 @@
 .todo-item {
-	width: 100%;
+    width: 100%;
     position: relative;
     display: flex;
     align-items: center;
@@ -7,9 +7,18 @@
     background-color: rgb(249, 249, 249);
     border-bottom: 1px solid rgb(172, 172, 172);
 
+    @media screen and(max-width: 576px) {
+        padding: 10px 0 10px 40px;
+    }
+
     &__icon {
         position: absolute;
         left: 10px;
+
+        @media screen and(max-width: 576px) {
+            width: 20px;
+            height: 20px;
+        }
     }
 
     &__text.completed {

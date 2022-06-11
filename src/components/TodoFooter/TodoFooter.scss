@@ -7,13 +7,14 @@
     background-color: rgb(249, 249, 249);
     color: rgb(113, 113, 113);
 
-	// Эффект стопки бумаг 
-	box-shadow:
-    0 1px 1px rgba(0,0,0,0.15),
-    0 10px 0 -5px #eee,
-    0 10px 1px -4px rgba(0,0,0,0.15),
-    0 20px 0 -10px #eee,
-    0 20px 1px -9px rgba(0,0,0,0.15);
+    @media screen and(max-width: 576px) {
+        font-size: 1.2rem;
+    }
+
+    // Эффект стопки бумаг
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 10px 0 -5px #eee,
+        0 10px 1px -4px rgba(0, 0, 0, 0.15), 0 20px 0 -10px #eee,
+        0 20px 1px -9px rgba(0, 0, 0, 0.15);
 
     button {
         margin: 0 5px;
@@ -22,9 +23,15 @@
         border: 1px solid rgb(249, 249, 249);
         background-color: rgb(249, 249, 249);
         color: rgb(113, 113, 113);
+		
         &:focus {
             border: 1px solid rgba(255, 105, 105, 0.415);
             border-radius: 5px;
+        }
+
+        @media screen and(max-width: 576px) {
+            margin: 0 2px;
+            padding: 2px;
         }
     }
 }
