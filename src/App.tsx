@@ -18,13 +18,10 @@ const App: React.FC = () => {
     );
 
     const activeItems = todos.filter((todo) => todo.completed === false);
+    // Тот список, который будем отображать в зависимости от нажатой кнопки
     const [list, setList] = useState(todos);
 
     // С каждым диспатчем мы меняем нужный нам массив, соответственно обновляем лист, который будет рендерить компонент TodoList
-    useEffect(() => {
-        setList(todos);
-    }, [todos]);
-
     useEffect(() => {
         setList(activeTodos);
     }, [activeTodos]);
@@ -32,6 +29,10 @@ const App: React.FC = () => {
     useEffect(() => {
         setList(completedTodos);
     }, [completedTodos]);
+
+    useEffect(() => {
+        setList(todos);
+    }, [todos]);
 
     return (
         <>

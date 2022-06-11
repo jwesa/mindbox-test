@@ -48,12 +48,14 @@ const todoSlice = createSlice({
         },
         clearCompleted(state) {
             state.completedTodos.length = 0;
-			state.todos = state.todos.map((todo) => {
-				return {
-					...todo,
-					completed: false,
-				}
-			})
+            state.activeTodos.length = 0;
+
+            state.todos = state.todos.map((todo) => {
+                return {
+                    ...todo,
+                    completed: false,
+                };
+            });
         },
     },
 });
